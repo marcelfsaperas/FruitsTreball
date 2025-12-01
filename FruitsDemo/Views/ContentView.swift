@@ -5,19 +5,55 @@ import SwiftUI
 //TODO: Create the navigation
 struct ContentView: View {
     @EnvironmentObject var fruitStore: FruitStore
+    @State private var sheetIsVisible = false
+    @State private var fruitToAddTemplate = FruitStore.defaultFruit
+    @State private var sheetAction = SheetAction.cancel
     var value = 1
     var body: some View {
-        List {
-            ForEach(fruitStore.fruits, id:\.self) {
-                fruit in
-                Text(fruit.name)   
+        NavigationView {
+            List(fruitStore.fruits) { fruit in
+                NavigationLink(
+                    destination: DetailFruitView(fruit: fruit)
+                ) {
+                    FruitRowView(fruit: fruit)
+                }
             }
+            .navigationBarTitle(Text("Fruit List"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        sheetIsVisible = true
+                    }
+                }
+                
+            }
+        }.sheet(isPresented: $sheetIsVisible, onDismiss: onSheetDismiss){
+            AddFruitView(
+                newFruit: $fruitToAddTemplate,
+                sheetIsVisible: $sheetIsVisible,
+                sheetAction: $sheetAction
+            )
+        }
+    }
+    
+    func onSheetDismiss()  {
+        if sheetAction == SheetAction.add {
+            fruitStore.addFruit(fruitToAdd: fruitToAddTemplate)
+            self.fruitToAddTemplate = FruitStore.defaultFruit
+            self.sheetAction = SheetAction.cancel
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(FruitStore())
     }
+}
+
+enum SheetAction {
+    case cancel
+    case add
 }

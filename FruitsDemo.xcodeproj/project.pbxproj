@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		34785E3C2B13339C00B86106 /* FruitsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E3B2B13339C00B86106 /* FruitsDemoApp.swift */; };
-		34785E3E2B13339C00B86106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E3D2B13339C00B86106 /* ContentView.swift */; };
 		34785E402B13339E00B86106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34785E3F2B13339E00B86106 /* Assets.xcassets */; };
 		34785E432B13339E00B86106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34785E422B13339E00B86106 /* Preview Assets.xcassets */; };
 		34785E4C2B1333B900B86106 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E4B2B1333B900B86106 /* Fruit.swift */; };
@@ -17,12 +16,12 @@
 		34785E552B1334FC00B86106 /* DetailFruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E542B1334FC00B86106 /* DetailFruitView.swift */; };
 		34785E582B13357100B86106 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E572B13357100B86106 /* EmojiPicker.swift */; };
 		34785E612B13362800B86106 /* AddFruitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34785E602B13362800B86106 /* AddFruitView.swift */; };
+		EFF8EE112EDDE8AC005AB46B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF8EE102EDDE8AC005AB46B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34785E382B13339C00B86106 /* FruitsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34785E3B2B13339C00B86106 /* FruitsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsDemoApp.swift; sourceTree = "<group>"; };
-		34785E3D2B13339C00B86106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34785E3F2B13339E00B86106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34785E422B13339E00B86106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34785E442B13339E00B86106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		34785E542B1334FC00B86106 /* DetailFruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFruitView.swift; sourceTree = "<group>"; };
 		34785E572B13357100B86106 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		34785E602B13362800B86106 /* AddFruitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFruitView.swift; sourceTree = "<group>"; };
+		EFF8EE102EDDE8AC005AB46B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		34785E5A2B1335E400B86106 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				34785E3D2B13339C00B86106 /* ContentView.swift */,
+				EFF8EE102EDDE8AC005AB46B /* ContentView.swift */,
 				34785E512B1334A300B86106 /* FruitRowView.swift */,
 				34785E542B1334FC00B86106 /* DetailFruitView.swift */,
 				34785E572B13357100B86106 /* EmojiPicker.swift */,
@@ -182,9 +182,9 @@
 			files = (
 				34785E552B1334FC00B86106 /* DetailFruitView.swift in Sources */,
 				34785E522B1334A300B86106 /* FruitRowView.swift in Sources */,
+				EFF8EE112EDDE8AC005AB46B /* ContentView.swift in Sources */,
 				34785E4C2B1333B900B86106 /* Fruit.swift in Sources */,
 				34785E612B13362800B86106 /* AddFruitView.swift in Sources */,
-				34785E3E2B13339C00B86106 /* ContentView.swift in Sources */,
 				34785E4F2B1333D400B86106 /* FruitStore.swift in Sources */,
 				34785E3C2B13339C00B86106 /* FruitsDemoApp.swift in Sources */,
 				34785E582B13357100B86106 /* EmojiPicker.swift in Sources */,
