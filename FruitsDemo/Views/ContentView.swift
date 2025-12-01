@@ -6,7 +6,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var fruitStore: FruitStore
     @State private var sheetIsVisible = false
-    @State private var fruitToAddTemplate = FruitStore.defaultFruit
+    @State private var fruitToAddTemplate = FruitStore.emptyFruit
     @State private var sheetAction = SheetAction.cancel
     @State private var showAlert = false
     var value = 1
@@ -41,7 +41,7 @@ struct ContentView: View {
         }.alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Error"),
-                message: Text ("This fruit already exists!"
+                message: Text ("This fruit already exists or its name is empty!"
                 ))
         }
     }
@@ -50,7 +50,7 @@ struct ContentView: View {
         if sheetAction == SheetAction.add {
             showAlert = fruitStore.addFruit(fruitToAdd: fruitToAddTemplate)
 
-            self.fruitToAddTemplate = FruitStore.defaultFruit
+            self.fruitToAddTemplate = FruitStore.emptyFruit
             self.sheetAction = SheetAction.cancel
         }
     }

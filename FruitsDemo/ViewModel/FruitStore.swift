@@ -15,8 +15,10 @@ class FruitStore:ObservableObject{
     
     static let defaultFruit =  Fruit(name: "Watermelon", emoji: .watermelon, description: "Watermelon helps control your heart rate")
     
+    static let emptyFruit = Fruit(name: "", emoji: .watermelon, description: "")
+    
     func addFruit(fruitToAdd: Fruit) -> Bool {
-        if !fruits.contains(fruitToAdd) {
+        if (!fruits.contains(fruitToAdd) && !fruitToAdd.name.isEmpty) {
             fruits.append(fruitToAdd)
             return false
         }
