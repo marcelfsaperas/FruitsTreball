@@ -7,31 +7,33 @@ struct AddFruitView: View {
     @Binding var sheetAction: SheetAction
     
     var body: some View {
-        Form {
-            Section(header: Text("Name")) {
-                TextField("Name", text: $newFruit.name)
-            }
-            Section(header: Text("Description")) {
-                TextEditor(text: $newFruit.description)
-            }
-            Section(header: Text("Image")) {
-                EmojiPicker(emoji: $newFruit.emoji)
-                    //TODO: .listRowInsets(EdgeInsets())
+        NavigationView {
+            Form {
+                Section(header: Text("Name")) {
+                    TextField("Name", text: $newFruit.name)
+                }
+                Section(header: Text("Description")) {
+                    TextEditor(text: $newFruit.description)
+                }
+                Section(header: Text("Image")) {
+                    EmojiPicker(emoji: $newFruit.emoji)
+                        //TODO: .listRowInsets(EdgeInsets())
+                }
+            }.navigationTitle("Add fruit")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel"){ sheetIsVisible = false }
+                    }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add"){
+                        sheetIsVisible = false
+                        sheetAction = SheetAction.add
+                    }
+                }
             }
         }
-        .navigationTitle("Add fruit")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel"){ sheetIsVisible = false }
-                }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Add"){
-                    sheetIsVisible = false
-                    sheetAction = SheetAction.add
-                }
-            }
-        }
+        
     }
 }
 

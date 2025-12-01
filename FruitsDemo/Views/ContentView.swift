@@ -8,6 +8,7 @@ struct ContentView: View {
     @State private var sheetIsVisible = false
     @State private var fruitToAddTemplate = FruitStore.defaultFruit
     @State private var sheetAction = SheetAction.cancel
+    @State private var showAlert = false
     var value = 1
     var body: some View {
         NavigationView {
@@ -34,12 +35,18 @@ struct ContentView: View {
                 sheetIsVisible: $sheetIsVisible,
                 sheetAction: $sheetAction
             )
+        }.alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text ("This fruit already exists!"
+                ))
         }
     }
     
     func onSheetDismiss()  {
         if sheetAction == SheetAction.add {
-            fruitStore.addFruit(fruitToAdd: fruitToAddTemplate)
+            showAlert = fruitStore.addFruit(fruitToAdd: fruitToAddTemplate)
+
             self.fruitToAddTemplate = FruitStore.defaultFruit
             self.sheetAction = SheetAction.cancel
         }
