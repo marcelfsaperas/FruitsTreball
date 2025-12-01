@@ -12,12 +12,15 @@ struct ContentView: View {
     var value = 1
     var body: some View {
         NavigationView {
-            List(fruitStore.fruits) { fruit in
-                NavigationLink(
-                    destination: DetailFruitView(fruit: fruit)
-                ) {
-                    FruitRowView(fruit: fruit)
+            List {
+                ForEach(fruitStore.fruits) { fruit in
+                    NavigationLink(
+                        destination: DetailFruitView(fruit: fruit)
+                    ) {
+                        FruitRowView(fruit: fruit)
+                    }
                 }
+                .onDelete(perform: remove)
             }
             .navigationBarTitle(Text("Fruit List"))
             .navigationBarTitleDisplayMode(.inline)
@@ -50,6 +53,10 @@ struct ContentView: View {
             self.fruitToAddTemplate = FruitStore.defaultFruit
             self.sheetAction = SheetAction.cancel
         }
+    }
+    
+    func remove(at offsets: IndexSet) {
+        fruitStore.fruits.remove(atOffsets: offsets)
     }
 }
 
